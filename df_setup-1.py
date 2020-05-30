@@ -12,8 +12,12 @@ import matplotlib.pyplot as plt
 #df = pd.pandas.read_csv('./data/complaints.csv')
 #subset = df.iloc[:250,0:18]
 #subset.to_csv("./data/subset.csv")
+#df = pd.read_csv("./data/complaints.csv", index_col = False)
 
-df = pd.read_csv("./data/complaints.csv", index_col = False)
+#(might take a while)
+df = pd.read_csv('http://files.consumerfinance.gov/ccdb/complaints.csv.zip', 
+                 compression='zip', header=0, sep=',', quotechar='"',
+                 index_col = False)
 
 # selecting only relavent columns and renaming columns for easier manipulation
 df = df.drop(columns=[
